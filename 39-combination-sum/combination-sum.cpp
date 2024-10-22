@@ -8,7 +8,7 @@ public:
     }
     void helper(int ind, int target, vector<int>& cand, vector<vector<int>>& ans, vector<int>& ds)
     {
-        if(ind==cand.size())
+        if(ind==cand.size()||target==0)
         {
             if(target == 0)
                 ans.push_back(ds);
