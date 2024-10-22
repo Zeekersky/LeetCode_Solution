@@ -12,8 +12,17 @@ public:
         return dp[i][prev + 1] = max(ntaken, taken);
     }
     int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        vector<vector<int>> dp(n, vector<int> (n + 1, -1));
-        return helper(0, -1, nums, dp);
+        vector<int> temp;
+        temp.push_back(nums[0]);
+        for(int i = 1; i < nums.size(); i++) {
+            int val = nums[i];
+            if(val <= temp.back()) {
+                int idx = lower_bound(temp.begin(), temp.end(), val) - temp.begin();
+                temp[idx] = val;
+            } else {
+                temp.push_back(val);
+            }
+        }
+        return temp.size();
     }
 };
