@@ -13,17 +13,12 @@ public:
                     count++;
                 }
                 cout << chars[ind-1] << " " << count << endl;
-                stack<char> st;
-                while(count!=0)
-                {
-                    int r = count % 10;
-                    st.push(r+'0');
-                    count = count / 10;
-                }
-                while(!st.empty()){
-                    chars[update++] = st.top();
-                    st.pop();
-                    len++;
+                if (count > 1) {
+                    string countStr = to_string(count);
+                    for (char c : countStr) {
+                        chars[update++] = c;
+                        len++;
+                    }
                 }
                 if(ind+1<chars.size()) {
                     chars[update++] = chars[ind];
