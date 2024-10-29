@@ -1,4 +1,4 @@
-# Geek Jump with k distances(DP-4)
+# Geek Jump with k distances
 
 There is an array arr of heights of stone and Geek is standing at the first stone and can jump to one of the following: Stone i+1, i+2, ... i+k stone, where k is the maximum number of steps that can be jumped and cost will be |hi-hj| is incurred, where j is the stone to land on. Find the minimum possible total cost incurred before the Geek reaches the last stone.
 
