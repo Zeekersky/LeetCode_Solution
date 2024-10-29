@@ -1,10 +1,8 @@
 class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
-        for (int i = 0; i < board.size(); ++i) 
-        {
-            for (int j = 0; j < board[0].size(); ++j) 
-            {
+        for (int i = 0; i < board.size(); ++i) {
+            for (int j = 0; j < board[0].size(); ++j) {
                 if (helper(i, j, board, word, 0))
                     return true;
             }
