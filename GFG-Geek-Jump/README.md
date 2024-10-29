@@ -12,7 +12,7 @@ Geek jump from 1st to 2nd stair(|20-10| = 10 energy lost). Then a jump from the 
 ### Your Task:
 You don't need to read input or print anything. Your task is to complete the function MinimumEnergy() which takes the array height, and integer n, and returns the minimum energy that is lost.
 
-**Expected Time Complexity:** O(n)
+**Expected Time Complexity:** O(n) [Recursive Solution won't work]
 
 **Expected Space Complexity:** O(n)
 
