@@ -4,13 +4,11 @@ public:
     int minimumEnergy(vector<int> &height, int n)
     {
         // Code here
-        if (n <= 1)
-            return 0;
         return helper(n - 1, height);
     }
     int helper(int ind, vector<int> &height)
     {
-        if (ind < 0)
+        if (ind <= 0)
             return 0;
         if (ind == 1)
             return abs(height[1] - height[0]);
