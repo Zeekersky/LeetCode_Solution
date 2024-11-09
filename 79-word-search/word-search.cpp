@@ -24,11 +24,10 @@ private:
         char temp = board[row][col];
         board[row][col] = '#';
 
-        bool found = helper(row + 1, col, board, word, ind + 1) ||
-                     helper(row - 1, col, board, word, ind + 1) ||
-                     helper(row, col + 1, board, word, ind + 1) ||
-                     helper(row, col - 1, board, word, ind + 1);
-
+        bool found =helper(row + 1, col, board, word, ind + 1) ||
+                    helper(row - 1, col, board, word, ind + 1) ||
+                    helper(row, col + 1, board, word, ind + 1) ||
+                    helper(row, col - 1, board, word, ind + 1);
         board[row][col] = temp;
 
         return found;
