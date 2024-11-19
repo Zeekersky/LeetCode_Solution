@@ -13,14 +13,36 @@ class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
       vector<int> inorder_seq;
-        helper(root, inorder_seq);
+        helper_iterative(root, inorder_seq);
         return inorder_seq;
     }
-    void helper(TreeNode* root, vector<int> &arr)
+    void helper_recursive(TreeNode* root, vector<int> &arr)
     {
         if(root==NULL) return;
-        helper(root->left, arr);
+        helper_recursive(root->left, arr);
         arr.push_back(root->val);
-        helper(root->right, arr);
+        helper_recursive(root->right, arr);
+    }
+    void helper_iterative(TreeNode* root, vector<int> &arr)
+    {
+        if(root==NULL) return;
+        stack<TreeNode*> st;
+        TreeNode* node = root;
+        while(true)
+        {
+            if(node != NULL)
+            {
+                st.push(node);
+                node = node->left;
+            }
+            else
+            {
+                if(st.empty()) return;
+                node = st.top();
+                st.pop();
+                arr.push_back(node->val);
+                node = node->right;
+            }
+        }
     }
 };
