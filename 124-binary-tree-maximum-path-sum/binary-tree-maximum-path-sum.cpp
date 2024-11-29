@@ -16,15 +16,16 @@ public:
         findPathSum(root, sum);
         return sum;
     }
-    int findPathSum(TreeNode* root, int &sum)
-    {
+    int findPathSum(TreeNode* root, int &sum){
         if(root==NULL) return 0;
         int lh = findPathSum(root->left, sum);
         int rh = findPathSum(root->right, sum);
+
         if(lh>=0 && rh<0) sum = max(sum, lh+root->val);
         else if(lh<0 && rh>=0) sum = max(sum, rh+root->val);
         else if(lh<0 && rh<0) sum = max(sum, root->val);
         else sum = max(sum, lh+root->val+rh);
+        
         return max(max(lh+root->val, rh+root->val), root->val);
     }
 };
