@@ -16,12 +16,6 @@ public:
         getPath(root, pathQ, q);
         int n = pathP.size()<pathQ.size()? pathP.size():pathQ.size();
         TreeNode* ans;
-        cout << "Path P: ";
-        for(auto it:pathP) cout << it->val << " ";
-        cout << endl;
-        cout << "Path Q: ";
-        for(auto it:pathQ) cout << it->val << " ";
-        cout << endl;
         if(pathP[n-1] == pathQ[n-1])
             ans = pathP[n-1];
         else {
