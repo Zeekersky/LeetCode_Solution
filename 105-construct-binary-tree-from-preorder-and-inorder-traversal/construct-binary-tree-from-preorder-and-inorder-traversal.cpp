@@ -21,7 +21,6 @@ public:
 
         vector<int> leftInorder(inorder.begin(), inorder.begin() + index);
         vector<int> rightInorder(inorder.begin() + index + 1, inorder.end());
-
         vector<int> leftPreorder(preorder.begin() + 1, preorder.begin() + 1 + leftInorder.size());
         vector<int> rightPreorder(preorder.begin() + 1 + leftInorder.size(), preorder.end());
         
