@@ -7,8 +7,7 @@ public:
         {
             if(hash[s[r]] >= l)
                 l = hash[s[r]]+1;
-            int len = r-l+1;
-            maxLen = max(len, maxLen);
+            maxLen = max(r-l+1, maxLen);
             hash[s[r++]] = r;
         }
         return maxLen;
