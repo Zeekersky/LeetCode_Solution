@@ -15,7 +15,6 @@ public:
             int notPick = dp[i-1];
             dp[i] = max(pick, notPick);
         }
-        for(auto it:dp) cout << it << " ";
         return dp[nums.size()-1];
     }
     int mem(vector<int>& nums) {
