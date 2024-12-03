@@ -12,7 +12,6 @@
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        // if(root==NULL) return true;
         return isValidMargin(root, LONG_MIN, LONG_MAX);
     }
     bool isValidMargin(TreeNode* root, long long leftMargin, long long rightMargin)
