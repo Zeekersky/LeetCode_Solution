@@ -1,6 +1,9 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
+        return mem(nums);
+    }
+    int mem(vector<int>& nums) {
         vector<int> dp(nums.size(), -1);
         return helper(nums.size()-1, nums, dp);
     }
