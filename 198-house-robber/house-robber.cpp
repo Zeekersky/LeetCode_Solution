@@ -6,7 +6,6 @@ public:
     }
     int tab(vector<int> &nums){
         vector<int> dp(nums.size(), -1);
-        // if(nums.empty()) return 0;
         dp[0] = nums[0];
         for(int i=1; i<nums.size(); i++){
             int pick = INT_MIN;
