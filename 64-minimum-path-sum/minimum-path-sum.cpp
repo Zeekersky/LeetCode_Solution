@@ -8,13 +8,10 @@ public:
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 if(i==0 && j==0) continue;
-                int up = INT_MIN, left = INT_MIN;
+                int up = INT_MAX, left = INT_MAX;
                 if(i>0) up = dp[i-1][j];
                 if(j>0) left = dp[i][j-1];
-                if(up != INT_MIN && left != INT_MIN)
-                    dp[i][j]= min(up, left) + grid[i][j];
-                else if(up!= INT_MIN) dp[i][j]= up + grid[i][j];
-                else if(left!= INT_MIN) dp[i][j]= left + grid[i][j];
+                dp[i][j]= min(up, left) + grid[i][j];
             }
         }
         return dp[m-1][n-1];
