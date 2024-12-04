@@ -18,7 +18,7 @@ public:
         for(int i = 0; i<nums.size(); i++) dp[i] = 0;
         dp[1] = nums[1];
         for (int i = 2; i < nums.size(); i++) {
-            long long pick = dp[i - 2] + nums[i];
+            long long pick = (i > 2) ? dp[i - 2] + nums[i] : nums[i];
             long long notPick = dp[i - 1];
             dp[i] = max(pick, notPick);
         }
