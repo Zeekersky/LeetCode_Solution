@@ -15,14 +15,14 @@ public:
         long long max1 = dp[nums.size() - 2];
 
         // Case 2: Rob from index 1 to nums.size() - 1
-        vector<long long> dp1(nums.size(), 0);
-        dp1[1] = nums[1];
+        for(int i = 0; i<nums.size(); i++) dp[i] = 0;
+        dp[1] = nums[1];
         for (int i = 2; i < nums.size(); i++) {
-            long long pick = dp1[i - 2] + nums[i];
-            long long notPick = dp1[i - 1];
-            dp1[i] = max(pick, notPick);
+            long long pick = dp[i - 2] + nums[i];
+            long long notPick = dp[i - 1];
+            dp[i] = max(pick, notPick);
         }
-        long long max2 = dp1[nums.size() - 1];
+        long long max2 = dp[nums.size() - 1];
 
         return max(max1, max2);
     }
