@@ -13,7 +13,7 @@ public:
         for(int i=1; i<nums.size(); i++){
             for(int j=1; j<=arrSum; j++){
                 bool take = false;
-                if(j > nums[i]) take = dp[i-1][j-nums[i]];
+                if(j >= nums[i]) take = dp[i-1][j-nums[i]];
                 bool notTake = dp[i-1][j];
                 dp[i][j] = take | notTake;
             }
