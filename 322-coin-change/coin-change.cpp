@@ -5,6 +5,7 @@ public:
         // vector<vector<int>> dp(coins.size(), vector<int>(amount+1, -1));
         // int ans = helper(coins.size()-1, coins, amount, dp);
         vector<vector<int>> dp(coins.size(), vector<int>(amount+1, 0));
+        // vector<int> prev
         for(int j=0; j<=amount; j++){
             if(j%coins[0] == 0)
                 dp[0][j] = j/coins[0];
@@ -19,7 +20,7 @@ public:
             }
         }
         int ans = dp[coins.size()-1][amount];
-        if(ans == 0 || ans >= 1e9) return -1;
+        if(ans >= 1e9) return -1;
         else return ans;
     }
     int helper(int ind, vector<int> &coins, int amount, vector<vector<int>> &dp){
