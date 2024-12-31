@@ -2,9 +2,24 @@ class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
         if(amount == 0) return 0;
-        vector<vector<int>> dp(coins.size(), vector<int>(amount+1, -1));
-        int ans = helper(coins.size()-1, coins, amount, dp);
-        if(ans == 0 || ans >= INT_MAX-1) return -1;
+        // vector<vector<int>> dp(coins.size(), vector<int>(amount+1, -1));
+        // int ans = helper(coins.size()-1, coins, amount, dp);
+        vector<vector<int>> dp(coins.size(), vector<int>(amount+1, 0));
+        for(int j=0; j<=amount; j++){
+            if(j%coins[0] == 0)
+                dp[0][j] = j/coins[0];
+            else dp[0][j] = 1e9;
+        }
+        for(int i=1; i<coins.size(); i++){
+            for(int j=0; j<=amount; j++){
+                int pick = INT_MAX;
+                if(j >= coins[i]) pick = 1+dp[i][j-coins[i]];
+                int notPick = dp[i-1][j];
+                dp[i][j] = min(pick, notPick);
+            }
+        }
+        int ans = dp[coins.size()-1][amount];
+        if(ans == 0 || ans >= 1e9) return -1;
         else return ans;
     }
     int helper(int ind, vector<int> &coins, int amount, vector<vector<int>> &dp){
