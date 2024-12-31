@@ -1,16 +1,28 @@
 class Solution {
 public:
-    int findTargetSumWays(vector<int>& nums, int target) {
-        return helper(nums.size()-1, nums, target);
-    }
-    int helper(int ind, vector<int>& nums, int target){
-        // Base Case
-        if(ind == -1){
-            if(target == 0) return 1;
-            else return 0;
+    int findTargetSumWays(vector<int>& arr, int d) {
+        int target = 0;
+        for(int i=0; i<arr.size(); i++){
+            target+= arr[i];
         }
-        int plus = helper(ind-1, nums, target-nums[ind]);
-        int minus = helper(ind-1, nums, target+nums[ind]);
-        return plus+minus;
+        if(target - d < 0 || (target-d)%2) return 0;
+        target = (target - d)/2;
+        vector<int> prev(target+1, 0);
+        vector<int> curr(target+1, 0);
+        if(arr[0]==0) prev[0] = 2;
+        else prev[0] = 1;
+        if(arr[0]!=0 && arr[0]<= target) prev[arr[0]] = 1;
+        curr[0] = 1;
+        for(int i=1; i<arr.size(); i++){
+            for(int j=0; j<=target; j++){
+                int pick = 0;
+                if(arr[i]<=j) pick = prev[j-arr[i]];
+                int notPick = prev[j];
+                curr[j] = pick + notPick;
+            }
+            prev = curr;
+        }
+        int ans = prev[target];
+        return ans;
     }
 };
