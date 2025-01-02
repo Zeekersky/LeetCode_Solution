@@ -2,7 +2,6 @@ class Solution {
 public:
     string shortestCommonSupersequence(string str1, string str2) {
         string lcs = LCS(str1, str2);
-        cout << lcs;
         int ind1 = 0, ind2 = 0;
         string ans = "";
         int i = 0;
