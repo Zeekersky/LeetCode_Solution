@@ -3,7 +3,22 @@ public:
     int minDistance(string word1, string word2) {
         // vector<vector<int>> dp(word1.size()+1, vector<int>(word2.size()+1, -1));
         // return helper(word1.size(), word2.size(), word1, word2, dp);
-        return tabulation(word1, word2);
+        // return tabulation(word1, word2);
+        return space_optimized(word1, word2);
+    }
+    int space_optimized(string& s, string& t){
+        vector<int> prev(t.size()+1, 0), curr(t.size()+1, 0);
+        for(int j=0; j<=t.size(); j++) prev[j] = j;
+        for(int i=1; i<=s.size(); i++){
+            curr[0] = i;
+            for(int j=1; j<=t.size(); j++){
+                if(s[i-1]==t[j-1]) curr[j] = prev[j-1];
+                else
+                    curr[j] = 1+min(curr[j-1], min(prev[j], prev[j-1]));
+            }
+            prev = curr;
+        }
+        return prev[t.size()];
     }
     int tabulation(string& s, string& t){
         vector<vector<int>> dp(s.size()+1, vector<int>(t.size()+1, 0));
