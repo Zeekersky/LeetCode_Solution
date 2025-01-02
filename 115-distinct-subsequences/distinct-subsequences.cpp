@@ -7,7 +7,7 @@ public:
     }
     int tabulation(string &s, string &t){
         int MOD = 1e9 + 7;
-        vector<vector<long long>> dp(s.size()+1, vector<long long>(t.size()+1, 0));
+        vector<vector<int>> dp(s.size()+1, vector<int>(t.size()+1, 0));
         for(int i=0; i<=s.size(); i++) dp[i][0] = 1;
         for(int i=1; i<=s.size(); i++){
             for(int j=1; j<=t.size(); j++){
