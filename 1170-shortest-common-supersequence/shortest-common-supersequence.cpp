@@ -44,7 +44,7 @@ public:
         int i = text1.size();
         int j = text2.size();
         int index = dp[i][j] - 1;
-        string ans(dp[i][j], ' '); // Resize to LCS length
+        string ans(dp[i][j], ' ');
         while (i > 0 && j > 0) {
             if (text1[i - 1] == text2[j - 1]) {
                 ans[index--] = text1[i - 1];
