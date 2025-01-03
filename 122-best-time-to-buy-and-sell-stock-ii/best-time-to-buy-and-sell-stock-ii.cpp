@@ -3,7 +3,17 @@ public:
     int maxProfit(vector<int>& prices) {
         // vector<vector<int>> dp(prices.size(), vector<int>(2, -1));
         // return helper(0, 1, prices, dp);
-        return tabulation(prices);
+        // return tabulation(prices);
+        return space_opt(prices);
+    }
+    int space_opt(vector<int>& prices){
+        vector<int> next(2, 0), curr(2, 0);
+        for(int i=prices.size()-1; i>=0; i--){
+            curr[0] = max(next[0], prices[i]+next[1]);
+            curr[1] = max(next[1], next[0]-prices[i]);
+            next = curr;
+        }
+        return next[1];
     }
     int tabulation(vector<int>& prices){
         vector<vector<int>> dp(prices.size()+1, vector<int>(2, 0));
