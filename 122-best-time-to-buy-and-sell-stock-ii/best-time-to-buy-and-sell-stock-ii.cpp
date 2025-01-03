@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        vector<vector<int>> dp(prices.size()+1, vector<int>(2, -1));
+        vector<vector<int>> dp(prices.size(), vector<int>(2, -1));
         return helper(0, 1, prices, dp);
     }
     int helper(int ind, bool buyFlag, vector<int>& prices, vector<vector<int>>& dp){
