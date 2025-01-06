@@ -3,7 +3,22 @@ public:
     int lengthOfLIS(vector<int>& nums) {
         // vector<vector<int>> dp(nums.size(), vector<int>(nums.size()+1, -1));
         // return helper(0, -1, nums, dp);
-        return tabulation(nums);
+        // return tabulation(nums);
+        return space_opt(nums);
+    }
+    int space_opt(vector<int>& nums){
+        int n=nums.size();
+        vector<int> curr(n+1, 0), ahead(n+1, 0);
+        for(int i=n-1; i>=0; i--){
+            for(int j=i-1; j>=-1; j--){
+                int take = INT_MIN;
+                if(j==-1 || nums[j]<nums[i]) take = 1+ahead[i+1];
+                int notTake = ahead[j+1];
+                curr[j+1] = max(take, notTake);
+            }
+            ahead = curr;
+        }
+        return ahead[0];
     }
     int tabulation(vector<int>& nums){
         int n=nums.size();
