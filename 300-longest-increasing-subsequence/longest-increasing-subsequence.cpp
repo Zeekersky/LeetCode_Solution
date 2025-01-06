@@ -1,17 +1,17 @@
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
-        vector<int> temp;
-        temp.push_back(nums[0]);
-        for(int i = 1; i < nums.size(); i++) {
-            int val = nums[i];
-            if(val <= temp.back()) {
-                int idx = lower_bound(temp.begin(), temp.end(), val) - temp.begin();
-                temp[idx] = val;
-            } else {
-                temp.push_back(val);
-            }
+        vector<vector<int>> dp(nums.size(), vector<int>(nums.size()+1, -1));
+        return helper(0, -1, nums, dp);
+    }
+    int helper(int ind, int prev, vector<int>& nums, vector<vector<int>>& dp){
+        if(ind==nums.size()){
+            return 0;
         }
-        return temp.size();
+        if(dp[ind][prev+1] != -1) return dp[ind][prev+1]; // As prev goes: -1 to nums.size()-1
+        int take = INT_MIN;
+        if(prev == -1 || nums[prev]<nums[ind]) take = 1+helper(ind+1, ind, nums, dp);
+        int notTake = helper(ind+1, prev, nums, dp);
+        return dp[ind][prev+1] = max(take, notTake);
     }
 };
