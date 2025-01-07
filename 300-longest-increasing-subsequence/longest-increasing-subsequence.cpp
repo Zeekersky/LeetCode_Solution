@@ -4,7 +4,20 @@ public:
         // vector<vector<int>> dp(nums.size(), vector<int>(nums.size()+1, -1));
         // return helper(0, -1, nums, dp);
         // return tabulation(nums);
-        return space_opt(nums);
+        // return space_opt(nums);
+        return more_opt(nums);
+    }
+    int more_opt(vector<int>& nums){
+        vector<int> dp(nums.size(), 1);
+        int maxi=1;
+        for(int ind=0; ind<nums.size(); ind++){
+            for(int prev=0; prev<ind; prev++){
+                if(nums[prev]<nums[ind])
+                    dp[ind] = max(1+dp[prev], dp[ind]);
+            }
+            maxi = max(maxi, dp[ind]);
+        }
+        return maxi;
     }
     int space_opt(vector<int>& nums){
         int n=nums.size();
