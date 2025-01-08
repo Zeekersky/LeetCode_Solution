@@ -4,7 +4,7 @@ public:
         int n = words.size();
         vector<int> dp(n, 1);
 
-        sort(words.begin(), words.end(), [](const string &a, const string &b) {
+        sort(words.begin(), words.end(), [](string &a, string &b) {
             return a.size() < b.size();
         });
 
