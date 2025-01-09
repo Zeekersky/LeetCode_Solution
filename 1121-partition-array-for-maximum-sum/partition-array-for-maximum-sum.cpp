@@ -11,7 +11,7 @@ public:
             int maxi = 0, maxEle = arr[i];
             for(int l=i; l< min(i+k, (int) arr.size()); l++){
                 if(maxEle < arr[l]) maxEle = arr[l];
-                int steps = maxEle*(l-i+1) + helper(l+1, arr, k, dp);
+                int steps = maxEle*(l-i+1) + dp[l+1];
                 maxi = max(maxi, steps);
             }
             dp[i] = maxi;
