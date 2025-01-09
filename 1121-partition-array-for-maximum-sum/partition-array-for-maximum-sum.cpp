@@ -8,13 +8,12 @@ public:
     int tabulation(vector<int>& arr, int k){
         vector<int> dp(arr.size()+1, 0);
         for(int i=arr.size()-1; i>=0; i--){
-            int maxi = 0, maxEle = arr[i];
+            int maxEle = arr[i];
             for(int l=i; l< min(i+k, (int) arr.size()); l++){
                 if(maxEle < arr[l]) maxEle = arr[l];
                 int steps = maxEle*(l-i+1) + dp[l+1];
-                maxi = max(maxi, steps);
+                dp[i] = max(dp[i], steps);
             }
-            dp[i] = maxi;
         }
         return dp[0];
     }
