@@ -52,7 +52,7 @@ This repository is made possible by the extensive problem sets and platform prov
 ## Connect with Me
 Feel free to connect with me for any questions, suggestions, or discussions:
 - **GitHub**: [Zeekersky](https://github.com/Zeekersky)
-- **LinkedIn**: [Your LinkedIn Profile](#) *(Add your LinkedIn link here if you wish)*
+- **LinkedIn**: [Link](https://www.linkedin.com/in/akash-pal-021851176/)
 
 ---
 Thank you for visiting this repository. Happy coding!
