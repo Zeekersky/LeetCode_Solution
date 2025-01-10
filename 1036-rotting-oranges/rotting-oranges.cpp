@@ -12,6 +12,7 @@ public:
                 }
             }
         }
+        // BFS Concept
         while(!q.empty()){
             for(int n = q.size(); n>0; n--){
                 pair<int,int> node = q.front();
