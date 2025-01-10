@@ -11,12 +11,13 @@ The repository is organized to ensure easy navigation and accessibility. Each so
 Each folder contains the solution and its README file containing the problem statement and description. The problem categories that are covered in the repository are as follows:
 ```
 LeetCode_Solution/
-    |-- Arrays/
-    |-- Strings/
-    |-- Tree/
-    |-- Recursion/
-    |-- DynamicProgramming/
-    |-- Graph/
+    |-- Arrays
+    |-- Strings
+    |-- Linked List
+    |-- Tree
+    |-- Recursion
+    |-- DynamicProgramming
+    |-- Graph
     |-- ...
 ```
 
