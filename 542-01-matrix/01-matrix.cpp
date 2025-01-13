@@ -1,6 +1,11 @@
 class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        /* 
+        Start bfs traversal from each cell 0 and 
+        keep traversing levelwise and 
+        put the level value in that cell while visiting.
+        */
         int n=mat.size(), m=mat[0].size(), level = 1;
         queue<pair<int, int>> q;
         vector<vector<int>> vis(n, vector<int>(m, 0));
