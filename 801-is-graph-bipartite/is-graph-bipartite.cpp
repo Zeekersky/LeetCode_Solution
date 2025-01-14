@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>&adj) {
-        int n=adj.size(); // NNumber of nodes
+        int n=adj.size();
         vector<int> color(n, -1);
 
         for(int i=0; i<n; i++){
