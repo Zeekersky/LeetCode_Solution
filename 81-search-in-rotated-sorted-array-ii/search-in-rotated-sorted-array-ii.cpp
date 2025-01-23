@@ -5,7 +5,7 @@ public:
         while(l<=h){
             int mid = l+(h-l)/2;
             if(nums[mid] == target) return true;
-            if(nums[l]==nums[mid] && nums[mid]==nums[h]){
+            if(nums[l]==nums[mid] && nums[mid]==nums[h]){ // Trim down the search space
                 l++; h--;
                 continue;
             }
