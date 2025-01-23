@@ -2,7 +2,8 @@ class Solution {
 public:
     int findMin(vector<int>& nums) {
         int l=0, h=nums.size()-1;
-        while(l<h){
+        while(l<h)
+        {
             int mid = (l + h) / 2;
             // Check if mid is the minimum
             if (nums[mid] > nums[h])
