@@ -25,6 +25,6 @@ public:
                 l = mid+1;
             }
         }
-        return temp;
+        return l;
     }
 };
