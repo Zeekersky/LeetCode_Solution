@@ -14,9 +14,9 @@ public:
                 else h=mid-1;
             }
             else if(nums[mid] == nums[mid+1]){
-                if(mid%2 == 0) // We are in right half of ans
-                    l=mid+1;
-                else h=mid-1;
+                if(mid%2 == 1) // We are in right half of ans
+                    h=mid-1;
+                else l=mid+1;
             }
             else return nums[mid];
         }
