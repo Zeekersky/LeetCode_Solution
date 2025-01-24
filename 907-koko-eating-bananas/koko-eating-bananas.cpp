@@ -4,7 +4,6 @@ public:
         int n = piles.size();
         long long ans1 = 0;
         for(int i=0; i<n; i++){
-            // ans1 += (piles[i]+mid-1) / mid;
             ans1 += (piles[i]/mid) + (piles[i]%mid>0?1:0);
         }
         return ans1;
