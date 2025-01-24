@@ -17,7 +17,7 @@ public:
                 h=mid-1;
             }
             else if(nums[mid-1] < nums[mid] && nums[mid] > nums[mid+1]) return mid;
-            else h=mid-1;
+            else h=mid-1; // Ans can be in both side. So discard any one half
         }
         return -1;
     }
