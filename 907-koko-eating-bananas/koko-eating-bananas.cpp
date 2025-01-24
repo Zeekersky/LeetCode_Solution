@@ -4,7 +4,8 @@ public:
         int n = piles.size();
         long long ans1 = 0;
         for(int i=0; i<n; i++){
-            ans1 += (piles[i]+mid-1) / mid;
+            // ans1 += (piles[i]+mid-1) / mid;
+            ans1 += (piles[i]/mid) + (piles[i]%mid>0?1:0);
         }
         return ans1;
     }
@@ -13,12 +14,10 @@ public:
         int l = 1;
         int h = *max_element(piles.begin(),piles.end());
         long long ans =0;
-        int temp = 0;
         while(l<=h){
             int mid = l + (h-l)/2;
             ans=findh(piles,mid);
             if(ans<=hr) {
-                temp = mid;
                 h = mid-1;
             }
             else{
