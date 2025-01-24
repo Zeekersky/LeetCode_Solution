@@ -16,10 +16,12 @@ public:
         while(l<=h){
             int mid = l + (h-l)/2;
             ans=findh(piles,mid);
-            if(ans<=hr)
+            if(ans<=hr) {
                 h = mid-1;
-            else
+            }
+            else{
                 l = mid+1;
+            }
         }
         return l;
     }
