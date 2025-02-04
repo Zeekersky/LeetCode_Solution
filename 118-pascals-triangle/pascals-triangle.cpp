@@ -6,7 +6,6 @@ public:
             int col = i;
             vector<int> temp;
             while(col>0){
-                // cout << i-1 << " " << i-col << " " << endl;
                 temp.push_back(findNcR(i-1, i-col));
                 col--;
             }
