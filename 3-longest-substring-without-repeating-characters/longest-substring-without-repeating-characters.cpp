@@ -8,7 +8,6 @@ public:
                 l = max(arr[s[r]]+1, l);
             }
             arr[s[r]] = r;
-            cout << "l: " << l << " r: " << r << endl;
             maxi = max(maxi, r-l+1);
             r++;
         }
