@@ -6,7 +6,7 @@ public:
         for(auto it:nums)
             mpp[it]++;
         for(auto it:mpp){
-            if(it.second>floor(nums.size()/3)) 
+            if(it.second>nums.size()/3)
                 ans.push_back(it.first);
         }
         return ans;
