@@ -8,9 +8,10 @@ public:
             int l=i+1, r=nums.size()-1;
             while(l<r){
                 int currSum = nums[l]+nums[r]+nums[i];
-                if(diff>(abs(currSum-target))){
+                int currDiff = abs(currSum-target);
+                if(diff>currDiff){
                     ans = currSum;
-                    diff = abs(currSum-target);
+                    diff = currDiff;
                 }
                 if(!diff) return ans;
                 if(currSum <= target) l++;
