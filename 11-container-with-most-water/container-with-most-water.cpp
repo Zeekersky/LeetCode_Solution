@@ -3,9 +3,8 @@ public:
     int maxArea(vector<int>& height) {
         int l=0, r=height.size()-1, maxi=0;
         while(l<r){
-            if(height[l]>height[r]){
+            if(height[l]>height[r])
                 maxi = max(maxi, (r-l)*height[r--]);
-            }
             else maxi = max(maxi, (r-l)*height[l++]);
         }
         return maxi;
