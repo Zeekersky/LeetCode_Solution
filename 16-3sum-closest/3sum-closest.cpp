@@ -7,7 +7,6 @@ public:
         for(int i=0; i<nums.size()-2; i++){
             int l=i+1, r=nums.size()-1;
             while(l<r){
-                // cout << nums[i] << " " << nums[l] << " " << nums[r] << endl;
                 int currSum = nums[l]+nums[r]+nums[i];
                 if(diff>(abs(currSum-target))){
                     ans = currSum;
