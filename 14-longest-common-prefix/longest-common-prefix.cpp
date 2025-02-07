@@ -2,7 +2,7 @@ class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
         string ans = "";
-        int ind = INT_MAX;
+        int ind = 1e9;
         if(strs.size()==1) return strs[0]; 
         for(int s=0; s<strs.size()-1; s++){
             int i=-1;
@@ -11,7 +11,7 @@ public:
             ind = min(ind, i);
             // cout << i << " " << ind << endl;
         }
-        if(ind != INT_MAX)
+        if(ind != 1e9)
             ans = strs[0].substr(0, ind+1);
         return ans;
     }
