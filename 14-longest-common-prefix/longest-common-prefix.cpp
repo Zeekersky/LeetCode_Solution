@@ -9,7 +9,6 @@ public:
             while((i+1)<min(strs[s].size(), strs[s+1].size()) && strs[s][i+1]==strs[s+1][i+1])
                 i++;
             ind = min(ind, i);
-            // cout << i << " " << ind << endl;
         }
         if(ind != 1e9)
             ans = strs[0].substr(0, ind+1);
