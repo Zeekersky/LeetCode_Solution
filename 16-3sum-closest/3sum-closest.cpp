@@ -9,10 +9,11 @@ public:
             while(l<r){
                 int currSum = nums[l]+nums[r]+nums[i];
                 int currDiff = abs(currSum-target);
-                if(diff>currDiff){
-                    ans = currSum;
-                    diff = currDiff;
-                }
+                int calc = diff>currDiff?((ans=currSum)&&(diff=currDiff)):0;
+                // if(diff>currDiff){
+                //     ans = currSum;
+                //     diff = currDiff;
+                // }
                 if(!diff) return ans;
                 if(currSum <= target) l++;
                 else r--;
